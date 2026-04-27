@@ -18,7 +18,7 @@ namespace TerraStorageOverflow.Common.Systems
             if (lootAll != null)
             {
                 MonoModHooks.Add(lootAll, Detour_LootAll);
-                StorageConfig.Log("[TS] Hooked ChestUI.LootAll successfully.");
+                Loggers.Log("[TS] Hooked ChestUI.LootAll successfully.");
             }
         }
 
@@ -48,7 +48,7 @@ namespace TerraStorageOverflow.Common.Systems
 
                 if (!item.IsAir && !InventoryUtils.HasRoomForItem(item))
                 {
-                    StorageConfig.Log($"[TS] Loot All Overflow: {item.Name} -> Storage.", Color.Orange);
+                    Loggers.Log($"[TS] Loot All Overflow: {item.Name} -> Storage.", Color.Orange);
 
                     if (modPlayer.DepositIntoAllNetworks(item))
                     {

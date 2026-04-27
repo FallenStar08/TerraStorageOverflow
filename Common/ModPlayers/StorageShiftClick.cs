@@ -4,7 +4,6 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
-using TerraStorageOverflow.Common.Systems;
 using TerraStorageOverflow.Common.Utils;
 
 namespace TerraStorageOverflow.Common.ModPlayers
@@ -24,10 +23,10 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
             var modPlayer = player.GetModPlayer<TerraStorageOverflow>();
 
-            StorageConfig.Log($"[TS] Debug: HasActiveStorage: {modPlayer.HasActiveStorage} | HasRoom: {InventoryUtils.HasRoomForItem(item)}");
+            Loggers.Log($"[TS] Debug: HasActiveStorage: {modPlayer.HasActiveStorage} | HasRoom: {InventoryUtils.HasRoomForItem(item)}");
             if (modPlayer.HasActiveStorage && !InventoryUtils.HasRoomForItem(item))
             {
-                StorageConfig.Log($"[TS] Inventory full, shift-clicking {item.Name} to storage.", Color.Orange);
+                Loggers.Log($"[TS] Inventory full, shift-clicking {item.Name} to storage.", Color.Orange);
                 if (modPlayer.DepositIntoAllNetworks(item))
                 {
                     inventory[slot] = new Item();

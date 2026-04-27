@@ -10,7 +10,7 @@ using TerraStorage.Content.Tiles;
 using TerraStorage.Helpers;
 using TerraStorage.Systems;
 using TerraStorageOverflow.Common.Networking;
-using TerraStorageOverflow.Common.Systems;
+using TerraStorageOverflow.Common.Utils;
 
 namespace TerraStorageOverflow.Common.ModPlayers
 {
@@ -39,7 +39,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
             {
                 NetworkDirty = true;
                 _remotesFoundLastFrame = _remotesFoundThisFrame;
-                StorageConfig.Log("[TS] Remote count changed, cache marked dirty.");
+                Loggers.Log("[TS] Remote count changed, cache marked dirty.");
             }
 
             _remotesFoundThisFrame = 0;
@@ -82,7 +82,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
                 }
             }
 
-            StorageConfig.Log($"[TS] Multi-Cache Refreshed: {_activeNetworks.Count} unique networks found.", Color.Cyan);
+            Loggers.Log($"[TS] Multi-Cache Refreshed: {_activeNetworks.Count} unique networks found.", Color.Cyan);
         }
 
         public bool DepositIntoAllNetworks(Item item)
@@ -122,7 +122,8 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
         public override bool OnPickup(Item item)
         {
-            if (item.maxStack <= 0 || _isHandlingPickup) return true;
+            if (item.IsAir || InventoryUtils.IsInstantPickup(item) || _isHandlingPickup)
+                return true;
 
             EnsureCacheFresh();
             if (!HasActiveStorage) return true;
@@ -138,7 +139,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
                     if (!fullyStored && Main.GameUpdateCount - _lastFullMessageFrame > 5400)
                     {
-                        StorageConfig.Log("[TerraStorage] All connected networks are full!", Color.OrangeRed);
+                        Loggers.Log("[TerraStorage] All connected networks are full!", Color.OrangeRed);
                         _lastFullMessageFrame = Main.GameUpdateCount;
                     }
 

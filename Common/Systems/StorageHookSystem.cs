@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TerraStorage.Content.Tiles;
+using TerraStorageOverflow.Common.Utils;
 
 namespace TerraStorageOverflow.Common.Systems
 {
@@ -37,7 +38,7 @@ namespace TerraStorageOverflow.Common.Systems
             if (result)
             {
                 ModPlayers.TerraStorageOverflow.NetworkDirty = true;
-                StorageConfig.Log("[TS] Manual Hook: Disk Inserted. Dirty flag set.", Microsoft.Xna.Framework.Color.LightPink);
+                Loggers.Log("[TS] Manual Hook: Disk Inserted. Dirty flag set.", Microsoft.Xna.Framework.Color.LightPink);
             }
 
             return result;
@@ -47,12 +48,12 @@ namespace TerraStorageOverflow.Common.Systems
         {
             Item result = orig(self, slot);
 
-            StorageConfig.Log($"[TS] Hook: RemoveDisk called for slot {slot}. Result Type: {result.type} (Name: {result.Name})", Microsoft.Xna.Framework.Color.Gray);
+            Loggers.Log($"[TS] Hook: RemoveDisk called for slot {slot}. Result Type: {result.type} (Name: {result.Name})", Microsoft.Xna.Framework.Color.Gray);
 
             if (result != null && result.type != ItemID.None)
             {
                 ModPlayers.TerraStorageOverflow.NetworkDirty = true;
-                StorageConfig.Log($"[TS] Hook: Disk Removed ({result.Name}). Network marked dirty.", Microsoft.Xna.Framework.Color.LightPink);
+                Loggers.Log($"[TS] Hook: Disk Removed ({result.Name}). Network marked dirty.", Microsoft.Xna.Framework.Color.LightPink);
             }
 
             return result;

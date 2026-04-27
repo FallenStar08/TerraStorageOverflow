@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using TerraStorage.Content.Items;
 using TerraStorage.Content.Tiles;
 using TerraStorage.Content.UI;
-using TerraStorageOverflow.Common.Systems;
+using TerraStorageOverflow.Common.Utils;
 
 namespace TerraStorageOverflow.Common.GlobalItems
 {
@@ -30,13 +30,13 @@ namespace TerraStorageOverflow.Common.GlobalItems
                             }
                             instance.OpenTerminalRemote(terminal);
 
-                            StorageConfig.Log("[TS] HoldItem: Terminal UI opened via manual click detection.", Color.MediumPurple);
+                            Loggers.Log("[TS] HoldItem: Terminal UI opened via manual click detection.", Color.MediumPurple);
                         }
                     }
                     else
                     {
                         if (Main.GameUpdateCount % 60 == 0)
-                            StorageConfig.Log("[TS] Cannot open: Remote is not bound.", Color.Red);
+                            Loggers.Log("[TS] Cannot open: Remote is not bound.", Color.Red);
                     }
                 }
             }
