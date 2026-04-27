@@ -16,6 +16,25 @@ A small addon for [**TerraStorage**](https://steamcommunity.com/sharedfiles/file
 ## Performance
 Should be fine? I use event driven caching instead of constant pooling.
 
+## Demo
+<video src="RepoResource/void_bag_like_demo.webm" width="600" controls muted autoplay loop>
+  Your browser does not support the video tag.
+</video>
+
+
+Tooltip feature :
+
+![Magnet Demo](RepoResource/tooltip_demo.png)
+
+<video src="RepoResource/loot_all_demo.webm" width="600" controls muted autoplay loop>
+  Your browser does not support the video tag.
+</video>
+
+<video src="RepoResource/shift_click_demo.webm" width="600" controls muted autoplay loop>
+  Your browser does not support the video tag.
+</video>
+
+
 ## Requirements
 * **tModLoader** (v2022.9+ / 1.4.4)
 * **TerraStorage** (Base Mod)
