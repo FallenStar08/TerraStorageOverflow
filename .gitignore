@@ -367,3 +367,4 @@ bin/
 obj/
 *.pdb
 *.dll
+Lib/
