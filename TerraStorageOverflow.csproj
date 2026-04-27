@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+	<ItemGroup>
+	  <Reference Include="TerraStorage">
+	    <HintPath>E:\Documents_SYMLINKS\Terraria\tModLoader\ModReader\TerraStorage\TerraStorage.dll</HintPath>
+		  <Private>false</Private>
+	  </Reference>
+	</ItemGroup>
+
+	<!-- References -->
+
+</Project>

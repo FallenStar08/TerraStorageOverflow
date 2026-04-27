@@ -1,0 +1,10 @@
+Configs: {
+	StorageConfig: {
+		DisplayName: Storage Config
+
+		DebugText: {
+			Label: Debug Message Toggle
+			Tooltip: enable/disable debug messages
+		}
+	}
+}

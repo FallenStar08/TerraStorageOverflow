@@ -1,0 +1,6 @@
+displayName = TerraStorage Overflow To Network
+author = FallenStar
+version = 1.0
+side = Both
+modReferences = TerraStorage
+sortAfter = TerraStorage

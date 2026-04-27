@@ -1,0 +1,41 @@
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ModLoader;
+using TerraStorage.Content.Items;
+using TerraStorage.Content.Tiles;
+using TerraStorageOverflow.Common.Systems;
+
+namespace TerraStorageOverflow.Common.GlobalItems
+{
+    public class UseTerminalFunction : GlobalItem
+    {
+        public override void HoldItem(Item item, Player player)
+        {
+            if (player.whoAmI != Main.myPlayer) return;
+
+            if (item.ModItem is RemoteTerminal rt)
+            {
+                if (Main.mouseLeft && Main.mouseLeftRelease && !Main.LocalPlayer.mouseInterface)
+                {
+                    if (rt.BoundEntityId != -1 && TileEntity.ByID.TryGetValue(rt.BoundEntityId, out var te))
+                    {
+                        if (te is TerminalEntity terminal)
+                        {
+                            terminal.OpenTerminalUI(player);
+
+                            Main.LocalPlayer.mouseInterface = true;
+
+                            StorageConfig.Log("[TS] HoldItem: Terminal UI opened via manual click detection.", Color.MediumPurple);
+                        }
+                    }
+                    else
+                    {
+                        if (Main.GameUpdateCount % 60 == 0)
+                            StorageConfig.Log("[TS] Cannot open: Remote is not bound.", Color.Red);
+                    }
+                }
+            }
+        }
+    }
+}
