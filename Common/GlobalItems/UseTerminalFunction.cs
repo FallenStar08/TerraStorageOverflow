@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using TerraStorage.Content.Items;
 using TerraStorage.Content.Tiles;
+using TerraStorage.Content.UI;
 using TerraStorageOverflow.Common.Systems;
 
 namespace TerraStorageOverflow.Common.GlobalItems
@@ -22,9 +23,12 @@ namespace TerraStorageOverflow.Common.GlobalItems
                     {
                         if (te is TerminalEntity terminal)
                         {
-                            terminal.OpenTerminalUI(player);
-
-                            Main.LocalPlayer.mouseInterface = true;
+                            TerminalUISystem instance = ModContent.GetInstance<TerminalUISystem>();
+                            if (instance == null)
+                            {
+                                return;
+                            }
+                            instance.OpenTerminalRemote(terminal);
 
                             StorageConfig.Log("[TS] HoldItem: Terminal UI opened via manual click detection.", Color.MediumPurple);
                         }
