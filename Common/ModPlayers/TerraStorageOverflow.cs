@@ -24,6 +24,26 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
         public bool HasActiveStorage => _activeNetworks.Count > 0;
 
+        private int _remotesFoundThisFrame;
+        private int _remotesFoundLastFrame;
+        public void ReportRemoteFound()
+        {
+            _remotesFoundThisFrame++;
+        }
+
+        public override void PostUpdate()
+        {
+            if (Player.whoAmI != Main.myPlayer) return;
+
+            if (_remotesFoundThisFrame != _remotesFoundLastFrame)
+            {
+                NetworkDirty = true;
+                _remotesFoundLastFrame = _remotesFoundThisFrame;
+                StorageConfig.Log("[TS] Remote count changed, cache marked dirty.");
+            }
+
+            _remotesFoundThisFrame = 0;
+        }
         public override void OnEnterWorld()
         {
             NetworkDirty = true;
