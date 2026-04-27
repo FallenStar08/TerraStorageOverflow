@@ -1,15 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TerraStorageOverflow.Common.Systems;
+using TerraStorageOverflow.Common.Utils;
 
 namespace TerraStorageOverflow.Common.GlobalItems
 {
     public class StorageVacuumLogic : GlobalItem
     {
+        private bool IsInstantPickup(Item item)
+        {
+            return (item.type > ItemID.None && item.type < ItemID.Count && ItemID.Sets.IsAPickup[item.type])
+                   || item.maxStack <= 0;
+        }
+
         public override bool ItemSpace(Item item, Player player)
         {
-            return player.GetModPlayer<ModPlayers.TerraStorageOverflow>().HasActiveStorage || base.ItemSpace(item, player);
+            return IsInstantPickup(item)
+                ? base.ItemSpace(item, player)
+                : player.GetModPlayer<ModPlayers.TerraStorageOverflow>().HasActiveStorage || base.ItemSpace(item, player);
         }
 
         public override bool GrabStyle(Item item, Player player)
@@ -17,7 +27,7 @@ namespace TerraStorageOverflow.Common.GlobalItems
             var modPlayer = player.GetModPlayer<ModPlayers.TerraStorageOverflow>();
             if (player.whoAmI == Main.myPlayer && modPlayer.HasActiveStorage)
             {
-                if (!player.CanAcceptItemIntoInventory(item))
+                if (!InventoryUtils.HasRoomForItem(item) && !IsInstantPickup(item))
                 {
                     Vector2 toPlayer = player.Center - item.Center;
                     float distSq = toPlayer.LengthSquared();
