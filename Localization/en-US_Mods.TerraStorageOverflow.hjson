@@ -1,10 +1,10 @@
 Configs: {
-	StorageConfig: {
-		DisplayName: Storage Config
+	ModSettings: {
+		DisplayName: Mod Settings
 
 		DebugText: {
-			Label: Debug Message Toggle
-			Tooltip: enable/disable debug messages
+			Label: Debug Text
+			Tooltip: ""
 		}
 	}
 }
