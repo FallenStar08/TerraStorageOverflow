@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using TerraStorage.Content.Items;
 using TerraStorage.Helpers;
 using TerraStorage.Systems;
+using TerraStorageOverflow.Common.Systems;
 
 namespace TerraStorageOverflow.Common.GlobalItems
 {
@@ -18,6 +19,10 @@ namespace TerraStorageOverflow.Common.GlobalItems
                 {
                     string posText = $"[c/AAAAAA:Bound to: ({te.Position.X}, {te.Position.Y})]";
                     tooltips.Add(new TooltipLine(Mod, "RemotePos", posText));
+                    if (Main.HoverItem == item)
+                    {
+                        TerminalLocationSystem.TargetTerminal = te.Position;
+                    }
 
                     var diskIds = StorageNetwork.GetAllConnectedDiskIds(te.Position);
                     if (diskIds != null && diskIds.Count > 0)
@@ -50,5 +55,7 @@ namespace TerraStorageOverflow.Common.GlobalItems
                 }
             }
         }
+
+
     }
 }
