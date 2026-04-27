@@ -15,7 +15,6 @@ namespace TerraStorageOverflow.Common.GlobalItems
         public override bool GrabStyle(Item item, Player player)
         {
             var modPlayer = player.GetModPlayer<ModPlayers.TerraStorageOverflow>();
-
             if (player.whoAmI == Main.myPlayer && modPlayer.HasActiveStorage)
             {
                 if (!player.CanAcceptItemIntoInventory(item))
