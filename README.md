@@ -17,20 +17,19 @@ A small addon for [**TerraStorage**](https://steamcommunity.com/sharedfiles/file
 Should be fine? I use event driven caching instead of constant pooling.
 
 ## Demo
-<video src="RepoResource/void_bag_like_demo.webm" width="600" controls muted autoplay loop>
+
+
+<video src="https://github.com/FallenStar08/TerraStorageOverflow/blob/master/RepoResources/void_bag_like.webm" width="600" controls muted autoplay loop>
   Your browser does not support the video tag.
 </video>
 
+![Magnet Demo](https://github.com/FallenStar08/TerraStorageOverflow/blob/master/RepoResources/tooltip_demo.png)
 
-Tooltip feature :
-
-![Magnet Demo](RepoResource/tooltip_demo.png)
-
-<video src="RepoResource/loot_all_demo.webm" width="600" controls muted autoplay loop>
+<video src="https://github.com/FallenStar08/TerraStorageOverflow/blob/master/RepoResources/loot_all_demo.webm" width="600" controls muted autoplay loop>
   Your browser does not support the video tag.
 </video>
 
-<video src="RepoResource/shift_click_demo.webm" width="600" controls muted autoplay loop>
+<video src="RepoResource/https://github.com/FallenStar08/TerraStorageOverflow/blob/master/RepoResources/shift_click_demo.webm" width="600" controls muted autoplay loop>
   Your browser does not support the video tag.
 </video>
 
