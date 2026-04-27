@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ID;
 
 namespace TerraStorageOverflow.Common.Utils
 {
@@ -20,6 +21,12 @@ namespace TerraStorageOverflow.Common.Utils
 
             }
             return hasSpace;
+        }
+
+        public static bool IsInstantPickup(Item item)
+        {
+            return (item.type > ItemID.None && item.type < ItemID.Count && ItemID.Sets.IsAPickup[item.type])
+                   || item.maxStack <= 0;
         }
     }
 }
