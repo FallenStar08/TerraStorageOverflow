@@ -19,3 +19,6 @@ Should be fine? I use event driven caching instead of constant pooling.
 ## Requirements
 * **tModLoader** (v2022.9+ / 1.4.4)
 * **TerraStorage** (Base Mod)
+
+## Credits
+* **Improved ToolTip Search Code** from [**Magic Storage**](https://github.com/blushiemagic/MagicStorage/blob/1.4.4/Common/Utils/Utility.ItemTooltips.cs)
