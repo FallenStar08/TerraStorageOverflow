@@ -30,13 +30,13 @@ namespace TerraStorageOverflow.Common.GlobalItems
                             }
                             instance.OpenTerminalRemote(terminal);
 
-                            Loggers.Log("[TS] HoldItem: Terminal UI opened via manual click detection.", Color.MediumPurple);
+                            Loggers.Log("Terminal UI opened via manual click detection.", Color.MediumPurple);
                         }
                     }
                     else
                     {
                         if (Main.GameUpdateCount % 60 == 0)
-                            Loggers.Log("[TS] Cannot open: Remote is not bound.", Color.Red);
+                            Loggers.Log("Cannot open: Remote is not bound.", Color.Red);
                     }
                 }
             }

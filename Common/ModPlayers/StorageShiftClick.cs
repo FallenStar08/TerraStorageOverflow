@@ -23,10 +23,10 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
             var modPlayer = player.GetModPlayer<TerraStorageOverflow>();
 
-            Loggers.Log($"[TS] Debug: HasActiveStorage: {modPlayer.HasActiveStorage} | HasRoom: {InventoryUtils.HasRoomForItem(item)}");
+            Loggers.Log($"HasActiveStorage: {modPlayer.HasActiveStorage} | HasRoom: {InventoryUtils.HasRoomForItem(item)}");
             if (modPlayer.HasActiveStorage && !InventoryUtils.HasRoomForItem(item))
             {
-                Loggers.Log($"[TS] Inventory full, shift-clicking {item.Name} to storage.", Color.Orange);
+                Loggers.Log($"Inventory full, shift-clicking {item.Name} to storage.", Color.Orange);
                 if (modPlayer.DepositIntoAllNetworks(item))
                 {
                     inventory[slot] = new Item();

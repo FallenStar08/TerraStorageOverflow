@@ -39,7 +39,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
             {
                 NetworkDirty = true;
                 _remotesFoundLastFrame = _remotesFoundThisFrame;
-                Loggers.Log("[TS] Remote count changed, cache marked dirty.");
+                Loggers.Log("Remote count changed, cache marked dirty.");
             }
 
             _remotesFoundThisFrame = 0;
@@ -82,7 +82,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
                 }
             }
 
-            Loggers.Log($"[TS] Multi-Cache Refreshed: {_activeNetworks.Count} unique networks found.", Color.Cyan);
+            Loggers.Log($"Multi-Cache Refreshed: {_activeNetworks.Count} unique networks found.", Color.Cyan);
         }
 
         public bool DepositIntoAllNetworks(Item item)
@@ -139,7 +139,7 @@ namespace TerraStorageOverflow.Common.ModPlayers
 
                     if (!fullyStored && Main.GameUpdateCount - _lastFullMessageFrame > 5400)
                     {
-                        Loggers.Log("[TerraStorage] All connected networks are full!", Color.OrangeRed);
+                        Loggers.Log("All connected networks are full!", Color.OrangeRed);
                         _lastFullMessageFrame = Main.GameUpdateCount;
                     }
 

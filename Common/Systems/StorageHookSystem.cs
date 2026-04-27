@@ -38,7 +38,7 @@ namespace TerraStorageOverflow.Common.Systems
             if (result)
             {
                 ModPlayers.TerraStorageOverflow.NetworkDirty = true;
-                Loggers.Log("[TS] Manual Hook: Disk Inserted. Dirty flag set.", Microsoft.Xna.Framework.Color.LightPink);
+                Loggers.Log("Disk Inserted. Dirty flag set.", Microsoft.Xna.Framework.Color.LightPink);
             }
 
             return result;
@@ -48,12 +48,12 @@ namespace TerraStorageOverflow.Common.Systems
         {
             Item result = orig(self, slot);
 
-            Loggers.Log($"[TS] Hook: RemoveDisk called for slot {slot}. Result Type: {result.type} (Name: {result.Name})", Microsoft.Xna.Framework.Color.Gray);
+            Loggers.Log($"RemoveDisk called for slot {slot}. Result Type: {result.type} (Name: {result.Name})", Microsoft.Xna.Framework.Color.Gray);
 
             if (result != null && result.type != ItemID.None)
             {
                 ModPlayers.TerraStorageOverflow.NetworkDirty = true;
-                Loggers.Log($"[TS] Hook: Disk Removed ({result.Name}). Network marked dirty.", Microsoft.Xna.Framework.Color.LightPink);
+                Loggers.Log($"Disk Removed ({result.Name}). Network marked dirty.", Microsoft.Xna.Framework.Color.LightPink);
             }
 
             return result;

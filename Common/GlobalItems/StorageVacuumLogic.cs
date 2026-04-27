@@ -31,9 +31,6 @@ namespace TerraStorageOverflow.Common.GlobalItems
 
                     if (distSq < rangeSq)
                     {
-                        if (Main.GameUpdateCount % 60 == 0)
-                            Loggers.Log($"[TS] Magnetizing {item.Name} (Range: {grabRange})", Color.Pink);
-
                         toPlayer.Normalize();
                         item.velocity = toPlayer * (12f + player.moveSpeed);
                         return true;
